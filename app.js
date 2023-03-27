@@ -9,7 +9,7 @@ app.get('/', async function (req, res) {
 //   await page.goto('https://www.google.com');
 //   const title = await page.title();
 //   await browser.close();
-  const title = 'Google'
+  const title = 'Google 1'
   res.send(`Google.com title: ${title}`);
 });
 
