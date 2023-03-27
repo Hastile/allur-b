@@ -1,14 +1,19 @@
+const http = require('http');
 const express = require('express');
 const app = express();
+const server = http.createServer(app);
 const ejs = require('ejs');
 
+const hostname = '127.0.0.1';
+const port = 3000;
+
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
+app.set('views', './views');
 
 app.get('/', function(req, res) {
-  res.render('index', { message: 'Hello World!' });
+  res.render('index');
 });
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
 });
