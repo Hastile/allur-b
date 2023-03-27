@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
+const ejs = require('ejs');
 
-app.get('/', async function (req, res) {
-res.sendFile(__dirname + '/public/index.html');
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
+
+app.get('/', function(req, res) {
+  res.render('index', { message: 'Hello World!' });
 });
 
 app.listen(3000, function () {
